@@ -91,7 +91,6 @@ public class Main {
         if (result.hasNextPage()){
           nextPageUrls.add(result.getNextPageUrl());
         }
-//          FileUtil fileUtil1 = new FileUtil(".\\output\\" + board.split("/")[1] +"_" + board.split("/")[2]+".txt");
         FileUtil fileUtil1 = new FileUtil("./output/" +"brand_result.txt");
         fileUtil1.writeLinesIntoFile(result.getImgUrls());
       }

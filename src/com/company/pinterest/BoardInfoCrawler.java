@@ -49,12 +49,6 @@ public class BoardInfoCrawler {
   }
 
   public static void main(String[] args) throws IOException {
-//    String url = "https://www.pinterest.com/gucci/boards/";
-//    BoardInfoCrawler crawler = new BoardInfoCrawler(url);
-//    ArrayList<String> results = crawler.getBoardInfos();
-//    for(String x:results){
-//      System.out.println(x);
-//    }
     String url = "https://le21eme.com/page/14/?s=gucci";
     String user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.3";
     //构造连接
