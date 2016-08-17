@@ -55,9 +55,46 @@ public class FileUtil {
     }
   }
 
+  public String getAllFromFile(){
+    try {
+      String pathname = fileUrl;
+      File filename = new File(pathname);
+      InputStreamReader reader = new InputStreamReader(
+              new FileInputStream(filename));
+      BufferedReader br = new BufferedReader(reader);
+      String line = "";
+      String result = "";
+      line = br.readLine();
+      while (line != null) {
+        result = result + line;
+        line = br.readLine();
+      }
+      return result;
+    }catch (Exception e){
+      e.printStackTrace();
+      return null;
+    }finally {
+
+    }
+  }
+
   public static void main(String args[]) {
     FileUtil fileUtil1 = new FileUtil("./output");
     System.out.print(fileUtil1.getFiles("./output").size());
+  }
+  public static ArrayList<String> fileResult = new ArrayList<String>(1000);
+
+  public ArrayList<String> getFilesWithRecursion(String absolutePath) {
+    File root = new File(absolutePath);
+    File[] files = root.listFiles();
+    for (File file : files) {
+      if (file.isDirectory()) {
+        getFilesWithRecursion(file.getAbsolutePath());
+      } else {
+        fileResult.add(file.getAbsolutePath());
+      }
+    }
+    return fileResult;
   }
 
   public ArrayList<String> getFiles(String absolutePath) {
@@ -65,10 +102,7 @@ public class FileUtil {
     File[] files = root.listFiles();
     ArrayList<String> filelist = new ArrayList<String>();
     for (File file : files) {
-      if (file.isDirectory()) {
-        getFiles(file.getAbsolutePath());
-        filelist.add(file.getAbsolutePath());
-      } else {
+      if (!file.isDirectory()) {
         filelist.add(file.getAbsolutePath());
       }
     }

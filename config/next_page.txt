@@ -1,1 +1,0 @@
-https://api.pinterest.com/v1/boards/mitchell72984/style-file/pins/?access_token=AZI2-FARTc9J_SxsH5NEG6vlkrwuFGpDD8WFnzlDT9qB6iBASgAAAAA&fields=image&cursor=LT40ODE2MDM3NTM4NzUyMDA4MjU6MzA3N3wzZDlhYzU1MWI2NTc5M2EyNjA5MGY3NGYyOTg4ZDZkNTViNmRjZmRmMTVhNDk3ZmY5MjI5ZmM2YTYwMWFiZTM2

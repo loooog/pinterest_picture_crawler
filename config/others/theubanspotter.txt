@@ -1,0 +1,12 @@
+{
+  "cssLocator":"figure.cap-bot div.thumbnailbig img",
+  "attrName":"src",
+  "rawUrl":"http://theurbanspotter.com/page/%1$d/",
+  "site":"theurbanspotter",
+  "updatePages":10,
+  "parser":"TheubanspotterParser",
+  "keyWords": [
+    "gucci",
+    "chanel"
+  ]
+}

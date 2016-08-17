@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
-    private static String BRAND_CONFIG_FILE = "./config/brand.txt";
-    private static String BOARD_CONFIG_FILE = "./config/board.txt";
-    private static String NEXT_PAGE_CONFIG_FILE = "./config/next_page.txt";
+    private static String BRAND_CONFIG_FILE = "./config/pinterest/brand.txt";
+    private static String BOARD_CONFIG_FILE = "./config/pinterest/board.txt";
+    private static String NEXT_PAGE_CONFIG_FILE = "./config/pinterest/next_page.txt";
     public static ArrayList<String> nextPageUrls = new ArrayList<String>(100000);
     public static void main(String[] args) throws IOException, InterruptedException {
 	// write your code here
-//      getFromBrand();
-      getFromBoard();
+      getFromBrand();
+//      getFromBoard();
 //      getFromNextPage();
       handleNextPage();
     }

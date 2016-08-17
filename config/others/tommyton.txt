@@ -1,0 +1,12 @@
+{
+  "cssLocator":"div.js-masonry-grid__item div.media-module__image-wrapper span[data-class=media-module__image] span:last-of-type",
+  "attrName":"data-src",
+  "rawUrl":"http://www.tommyton.com/archive/index.html?aj=es&page=%1$d",
+  "site":"tommyton",
+  "updatePages":10,
+  "parser":"TommytonParser",
+  "keyWords": [
+    "gucci",
+    "chanel"
+  ]
+}

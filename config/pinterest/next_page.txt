@@ -1,0 +1,1 @@
+https://api.pinterest.com/v1/boards/studentrate/fashion-trends/pins/?access_token=AZI2-FARTc9J_SxsH5NEG6vlkrwuFGpDD8WFnzlDT9qB6iBASgAAAAA&fields=image&cursor=LT4xODA5ODg0Nzg3NDg0MzQ5ODE6MjE1Mzl8M2I3OGE1ZTUwYzE4NzRjNWE1NDBjYmMyN2Q4MDU1NGRiZmJkYTZmYjJjY2RlNjRkZjcwNzFkMDdmZWE4ZjFjMA%3D%3D

@@ -25,7 +25,7 @@ public class ApiRequestUtil {
           "AZI2-FARTc9J_SxsH5NEG6vlkrwuFGpDD8WFnzlDT9qB6iBASgAAAAA",
           "AZJJGkvrSJdgn3alMk-L3GVktQyUFGpDe6oZWcFDUdfddWAtaQAAAAA"
   };
-  public static String currentToken = token2;
+  public static String currentToken = token5;
   public static String BASE_URL_TAIL = "pins/?access_token=" + currentToken + "&fields=image";
 
   public ApiResult getApiResultWithBoard(String board){

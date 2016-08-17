@@ -1,0 +1,12 @@
+{
+  "cssLocator":"img.attachment-full",
+  "attrName":"src",
+  "rawUrl":"http://www.breakingfad.com/page/%1$d",
+  "site":"breakingfad",
+  "updatePages":10,
+  "parser":"BreakingfadParser",
+  "keyWords": [
+    "gucci",
+    "chanel"
+  ]
+}

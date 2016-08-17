@@ -1,0 +1,12 @@
+{
+  "cssLocator":"div.ms-item div.ms-thumbnail div",
+  "attrName":"style",
+  "rawUrl":"https://le21eme.com/archive/page/%1$d/",
+  "site":"le21eme",
+  "updatePages":10,
+  "parser":"Le21emeParser",
+  "keyWords": [
+    "gucci",
+    "chanel"
+  ]
+}
