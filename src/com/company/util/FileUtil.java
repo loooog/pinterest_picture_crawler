@@ -23,15 +23,14 @@ public class FileUtil {
       line = br.readLine();
       ArrayList<String> results = new ArrayList<String>();
       while (line != null) {
-        results.add(line);
+        if (line != "")
+          results.add(line);
         line = br.readLine();
       }
       return results;
     }catch (Exception e){
       e.printStackTrace();
       return null;
-    }finally {
-
     }
   }
 
@@ -73,8 +72,6 @@ public class FileUtil {
     }catch (Exception e){
       e.printStackTrace();
       return null;
-    }finally {
-
     }
   }
 

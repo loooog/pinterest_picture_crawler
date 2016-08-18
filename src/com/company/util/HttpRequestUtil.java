@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.URL;
 
 /**
@@ -11,7 +13,10 @@ import java.net.URL;
  */
 public class HttpRequestUtil {
   static public byte[] getUrlBytes(String urlSpec) throws IOException {
+    System.out.println("正在请求" + urlSpec);
+
     URL url = new URL(urlSpec);
+//    Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 1081));
     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
     try {
@@ -37,4 +42,5 @@ public class HttpRequestUtil {
   public static String getUrl(String urlSpec) throws IOException {
     return new String(getUrlBytes(urlSpec));
   }
+
 }
