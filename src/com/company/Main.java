@@ -14,27 +14,16 @@ public class Main {
   public static final String NEXT_RESULT = "next_result.txt";
   public static final String BOARD_RESULT = "board_result.txt";
   public static void main(String[] args){
-
-    ArrayList<String> back_files = new FileUtil(BACKUP_PACKEGE).getFilesWithRecursion(BACKUP_PACKEGE);
-
-    for (String file  : back_files){
-      if (file.indexOf(BRAND) > 0){
-        append(file, TARGET_PACKAGE + BRAND);
-      }else if (file.indexOf(NEXT_RESULT) > 0){
-        append(file, TARGET_PACKAGE + NEXT_RESULT);
-      }else if (file.indexOf(BOARD_RESULT) > 0){
-        append(file, TARGET_PACKAGE + BOARD_RESULT);
-      }else {
-        System.out.println("none");
-      }
-
-    }
-  }
-
-  public static void append(String origin,String target){
-    FileUtil util = new FileUtil(origin);
+    String x = "./output/flickr/gucci.txt";
+    FileUtil util = new FileUtil(x);
     ArrayList<String> results = util.getLinesFromFile();
-    util = new FileUtil(target);
-    util.writeLinesIntoFile(results);
+    for (int i = 0;i < results.size();i++){
+      results.set(i,"/none/none/:" + results.get(i));
+    }
+    FileUtil util1 = new FileUtil("./output/flickr/flickr.txt");
+    util1.writeLinesIntoFile(results);
+
+
   }
+
 }

@@ -38,6 +38,7 @@ public class OssPusher {
         }
       }
     }
+
     ossClient.shutdown();
     System.out.println("done");
   }

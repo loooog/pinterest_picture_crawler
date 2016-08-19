@@ -16,7 +16,8 @@ import java.util.List;
  * Created by ma on 2016/08/17.
  */
 public class ApiRequest implements Runnable{
-  private static final String SEARCH_TEXT = "street%20style%20";
+  private static final String SEARCH_TEXT_WITH_KEYWORD = "street%20style%20";
+  private static final String SEARCH_TEXT_WITHOUT_KEYWORD = "street%20style";
   private static final String BASE_URL_FORMAT =
           "https://secure.flickr.com/services/rest/?method=flickr.photos.search&api_key=ca329d8cb32390ea248be0668c5f6291&safe_search=1&content_type=1&sort=interestingness-desc&per_page=500&page=%1$d&text=";
   private static final int BEGIN_PAGE_NUMBER = 1;
@@ -28,7 +29,8 @@ public class ApiRequest implements Runnable{
   private String outputFile;
   public ApiRequest(String keyword){
     this.keyword = keyword;
-    this.requestUrl = String.format(BASE_URL_FORMAT,BEGIN_PAGE_NUMBER) + SEARCH_TEXT + keyword;
+//    this.requestUrl = String.format(BASE_URL_FORMAT,BEGIN_PAGE_NUMBER) + SEARCH_TEXT_WITH_KEYWORD + keyword;
+    this.requestUrl = String.format(BASE_URL_FORMAT,BEGIN_PAGE_NUMBER) + SEARCH_TEXT_WITHOUT_KEYWORD;
     this.outputFile = keyword + OUTPUT_FILE_TYPE;
   }
 
@@ -37,13 +39,14 @@ public class ApiRequest implements Runnable{
     try {
       String xmlString = HttpRequestUtil.getUrl(requestUrl);
       ApiSearchResult result = getResults(xmlString);
-      FileUtil util1 = new FileUtil(OUTPUT_PACKAGE + outputFile);
-      util1.writeLinesIntoFile(result.getImgUrls());
+//      FileUtil util1 = new FileUtil(OUTPUT_PACKAGE + outputFile);
+//      util1.writeLinesIntoFile(result.getImgUrls());
 
-      for (int i = 2;i <= 2;i++){
-        String currentRequestUrl = String.format(BASE_URL_FORMAT,i) + SEARCH_TEXT + keyword;
+      for (int i = 1247;i <= result.getTotalPages();i++){
+//        String currentRequestUrl = String.format(BASE_URL_FORMAT,i) + SEARCH_TEXT_WITH_KEYWORD + keyword;
+        String currentRequestUrl = String.format(BASE_URL_FORMAT,i) + SEARCH_TEXT_WITHOUT_KEYWORD;
         System.out.println(currentRequestUrl);
-        String currentXmlString = HttpRequestUtil.getUrl(requestUrl);
+        String currentXmlString = HttpRequestUtil.getUrl(currentRequestUrl);
         ApiSearchResult currentResult = getResults(currentXmlString);
         FileUtil util = new FileUtil(OUTPUT_PACKAGE + outputFile);
         util.writeLinesIntoFile(currentResult.getImgUrls());
@@ -57,8 +60,8 @@ public class ApiRequest implements Runnable{
   public ApiSearchResult getResults(String xmlString) throws ParserConfigurationException, IOException, SAXException {
     org.jsoup.nodes.Document xmlDoc = Jsoup.parse(xmlString, "UTF-8", Parser.xmlParser());
     Element photoElement = xmlDoc.getElementsByTag(ApiSearchResult.XML_TAG_NAME_PHOTOS).first();
-//    int totalPages = Integer.parseInt(photoElement.attr("pages"));
-    int totalPages = 3;
+    int totalPages = Integer.parseInt(photoElement.attr("pages"));
+
     List<Element> photoElements  = photoElement.select(ApiSearchResult.XML_TAG_NAME_PHOTO);
     ArrayList<String> imgs = new ArrayList<String>(800);
     for (Element element : photoElements){
